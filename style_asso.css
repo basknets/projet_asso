@@ -1,0 +1,361 @@
+
+*{
+    
+    padding: 0px;
+    font-family: Avenir, sans-serif;
+}
+
+/* menu en haut  */
+nav{
+    width: 100%;
+    margin: 0 auto;
+    background-color:  #FFF5EE;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav ul li img{
+    height: 30px;
+    width: auto;
+}
+nav ul li{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    position: relative;
+}
+
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+nav a:hover{
+    color: purple;
+    border-bottom: 2px solid purple;
+}
+
+.sous{
+    display: none;
+    box-shadow: 0px 1px 2px #CCC;
+    background-color:  #FFF5EE;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+nav ul li:hover .sous{
+    display: block;
+}
+.sous li{
+    float:none;
+    width: 100%;
+    text-align: left;
+}
+.sous a{
+    padding: 10px;
+    border-bottom: none;
+}
+.sous a:hover{
+    border-bottom: none;
+    background-color: RGBa(200,200,200,0.1);
+}
+.deroulant > a::after{
+    content:" ▼";
+    font-size: 12px;
+}
+/* fin du menu  */
+body{
+    background-color: 	#FFF5EE;
+}
+
+
+.test td {
+    border: 2px solid purple;
+    text-align:center;
+    font-size:25px;
+    background-color: white;
+    
+ }
+
+.test td a{
+    color :purple;
+    text-decoration: none;   
+
+ }
+
+.image{
+        width : 20px;
+        height : auto;
+ }
+a{
+    text-decoration: none;
+ }
+
+.test table{
+    position: relative;
+    left : 380px;
+    bottom :200px;
+    width: 60%;
+    z-index: 1;
+   
+ }
+
+.img_animaux{
+    width : 300px;
+    height : auto;
+}
+
+.cote_users {
+    position: relative;
+    width: 100%;
+}
+
+.connexion_users, .inscription_users {
+    position: absolute;
+    
+}
+
+.connexion_users {
+    top: 0;
+    left: 55%;
+    background-color: white;
+    height: 500px;
+    width: 400px;
+    text-align: center;
+
+}
+
+.inscription_users {
+    text-align: center;
+    top: 0;
+    left: 30%;
+    background-color: white;
+    height: 500px;
+    width: 400px;
+}
+.inscription_users ::placeholder{
+    background-color:whitesmoke;
+    color: black;
+}
+
+.inscription_users input {
+    width: 200px;
+    height: 25px;
+}
+
+.connexion_users ::placeholder{
+    background-color: whitesmoke;
+}
+
+.connexion_users input {
+    width: 200px;
+    height: 25px;
+}
+
+.cote_pro{
+    position: relative;
+    text-align: center;
+    background-color: white;
+    top: 30px;
+    left: 40%;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+}
+
+.accueil_pro{
+    position: absolute;
+    text-align: center;
+    border: rgb(240, 174, 240) solid 4px;
+    border-radius: 20px;
+    top: 30%;
+    left: 40%;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(240, 174, 240);
+    
+}
+
+.accueil_pro a {
+    color: black;
+}
+
+
+#ajout{
+    top:35px;
+    position: relative;
+    border: purple solid 2px;
+    border-radius: 25%;
+    height: 40px;
+    width: 90px;
+    left: 100px;
+
+}
+
+#suppression{
+    top:60px;
+    position: relative;
+    border: #CCC solid 2px;
+    border-radius: 25%;
+    height: 40px;
+    width: 90px;
+    left: 100px;
+}
+#les_animaux{
+    position: relative;
+    top: 85px;
+    border: purple solid 2px;
+    border-radius: 25%;
+    height: 40px;
+    width: 90px;
+    left: 100px;
+
+}
+.ajout{
+    font-family:'Courier New';
+    color : purple;
+}
+
+.rectangle{
+    position: fixed;
+    border: #f4cfe2 2px solid;
+    width: 99%;
+    height: 350px;
+    top: 200px;
+    background-color:#f6c2ed;
+}
+#image{
+    position: relative;
+    left: 800px;
+    bottom : 320px;
+    width: 450px;
+    height: auto;
+
+}
+
+#nom_animal{
+    color : purple;
+    font-size: 35px;
+    bottom: 70px;
+    left:50px;
+    position: relative;
+    font-family:algerian;
+}
+
+#espece_animal{
+    color:purple;
+    position: relative;
+    left : 100px;
+    font-size: large;
+    background-color: rgb(240, 174, 240);
+    border: rgb(240, 174, 240) solid 2px;
+    border-radius: 25%;
+    width: 80px;
+    height: 20px;
+}
+
+#carre_espece{
+    position: relative;
+    left : 100px;
+    top : -15px;
+  font-size: 20px;
+}
+
+#race_animal{
+    color:purple;
+    position: relative;
+    left: 300px;
+    top : -65px;
+    font-size: large;
+    width: 60px;
+    height: 20px;
+    border-radius: 25%;
+    background-color: rgb(240, 174, 240);
+    border: rgb(240, 174, 240) solid 2px;
+    font-size: large;
+}
+
+#carre_race{  
+    position: relative;
+    left: 300px;
+    top : -78px;
+    font-size: 20px;
+}
+
+#naissance_animal{
+    color : purple;
+    position: relative;
+    top:20px;
+    left: 90px;
+}
+
+#sexe_animal{
+    color: purple;
+    position: relative;
+    top:40px;
+    left: 90px;
+}
+
+#refuge_animal{
+    color:black;
+    position: relative;
+    top:60px;
+    left: 90px;
+}
+
+#description_animal{
+    color: brown;
+    position: relative;
+    left: 800px;
+    top:60px;
+}
+
+
+.adoption td,.adoption th{
+    border: 2px solid purple;
+    padding: 8px;
+    text-align: center;
+    max-width: 200px; /* Changer la largeur maximale selon vos besoins */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word; /* Assurer le passage à la ligne pour les longs mots */
+    }
+
+
+
+.adoption table{
+    border: purple solid 2px;
+    position: absolute;
+    width: 99%;
+    border-collapse: collapse;
+}
+
+.adoption th{
+    background-color: rgb(240, 174, 240);
+
+}
+
+.adoption a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
