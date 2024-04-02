@@ -2,8 +2,6 @@
 session_start();
 require_once 'menu.php';
 require_once 'login_asso.php';
-
-
 ?>
 
 <html>
