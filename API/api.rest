@@ -1,0 +1,51 @@
+
+# POST http://localhost:8080/user/register.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstname": "testrr",
+#     "lastname": "test",
+#     "mail": "test@test.fr",
+#     "password": "test"
+# }
+
+# POST http://localhost:8080/user/login.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "mail": "test@test.fr",
+#     "password": "test"
+# }
+
+#  POST http://localhost:8080/animaux/get.php
+
+# POST http://localhost:8080/animaux/delete.php
+# Content-Type: application/json
+
+# {
+#     "animal_id" : "6"
+# }
+
+
+# POST http://localhost:8080/animaux/ajout.php HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "nom" : "test",
+#     "date_naissance" : "2000-01-01",
+#     "espece" : "teste",
+#     "race" : "testrr",
+#     "sexe" : "sexe",
+#     "lieu" : "lieu",
+#     "description" : "descrtopeefze"
+# }
+
+POST http://localhost:8080/animaux/modification.php HTTP/1.1
+Content-Type: application/json
+
+{
+    "animal_id": "21",
+    "nom": "tkt",
+    "espece": "tktt",
+    "descritpion": "eeeee"
+}
