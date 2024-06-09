@@ -14,12 +14,12 @@
 <body>
 <div class=accueil_pro>
     <div id=ajout>
-<a href = "ajout_animaux.php"><center> Ajouter un animal </center> <a>
+<a href = "ajout_animaux.php"><center> <br>Ajouter un animal </center> <a>
     </div>
 
 
      <div id="les_animaux">
-        <a href="tous_les_animaux.php"><center>Tous les animaux</center></a>
+        <a href="tous_les_animaux.php"><center><br>Tous les animaux</center></a>
     </div>  
 </div>
 

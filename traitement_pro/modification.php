@@ -6,8 +6,13 @@
     <link href="../style_asso.css" rel="stylesheet">
 </head>
 <body>
+<div class="header">
+    <a href="tous_les_animaux.php" style="float: left;">Retour à l'accueil</a>
+    <h1 style="margin-left: 600px;">Modifier les informations de l'animal</h1>
+</div>
 
 <?php
+
 if(isset($_GET['num_animal'])) {
     $id_animal = $_GET['num_animal'];
     
@@ -27,31 +32,35 @@ if(isset($_GET['num_animal'])) {
         $description = $row['description'];
 
         ?>
+        <div class ="ajout">
+        <center>
         <form action="traitement_modification.php" method="POST">
-            <input type="hidden" name="id_animal" value="<?php echo $id_animal; ?>">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>"><br>
+            <input type="hidden" name="id_animal" value="<?php echo $id_animal; ?>"><br>
+            <label for="nom">Nom :</label><br>
+            <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>"><br><br>
 
-            <label for="espece">Espèce :</label>
-            <input type="text" id="espece" name="espece" value="<?php echo $espece; ?>"><br>
+            <label for="espece">Espèce :</label><br>
+            <input type="text" id="espece" name="espece" value="<?php echo $espece; ?>"><br><br>
 
-            <label for="race">Race :</label>
-            <input type="text" id="race" name="race" value="<?php echo $race; ?>"><br>
+            <label for="race">Race :</label><br>
+            <input type="text" id="race" name="race" value="<?php echo $race; ?>"><br><br>
 
-            <label for="date_naissance">Date de naissance :</label>
-            <input type="date" id="date_naissance" name="date_naissance" value="<?php echo $date_naissance; ?>"><br>
+            <label for="date_naissance">Date de naissance :</label><br>
+            <input type="date" id="date_naissance" name="date_naissance" value="<?php echo $date_naissance; ?>"><br><br>
 
-            <label for="sexe">Sexe :</label>
-            <input type="text" id="sexe" name="sexe" value="<?php echo $sexe; ?>"><br>
+            <label for="sexe">Sexe :</label><br>
+            <input type="text" id="sexe" name="sexe" value="<?php echo $sexe; ?>"><br><br>
 
-            <label for="lieu">Lieu :</label>
+            <label for="lieu">Lieu :</label><br>
             <input type="text" id="lieu" name="lieu" value="<?php echo $lieu; ?>"><br>
+            <br>
+            <label for="description">Description :</label><br>
+            <textarea id="description" name="description"><?php echo $description; ?></textarea><br><br>
 
-            <label for="description">Description :</label>
-            <textarea id="description" name="description"><?php echo $description; ?></textarea><br>
-
-            <input type="submit" value="Modifier">
+            <input type="submit" value="Modifier"><br><br>
         </form>
+        </center>
+        </div>
         <?php
     } else {
         echo "Aucun animal trouvé avec cet identifiant.";

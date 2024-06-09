@@ -38,7 +38,7 @@ if(isset($_SESSION['prenom'])) {
 
                 echo "Animal adopté avec succès!";
                 header("location:../index.php?r=$id_animal");
-                exit(); // Exit after redirection
+                exit(); 
             } else {
                 echo "Erreur lors de l'insertion dans la table adoptants: " . $insert_adoption->error;
             }

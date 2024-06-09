@@ -31,26 +31,26 @@ if(isset($_GET['i'])){
 ?>
 <div class = "cote_users">
     <div class = "inscription_users">
-<h1>inscription</h1>
+<h1>Inscription</h1>
 <p>Si vous n'avez pas de compte, créez votre compte ci-dessous</p>
 <br>
 
 <form action="traitement_client.php" method="POST">
     
-    <input type = "text"  id="nom" name="nom"  placeholder="nom" required>  <br/><br>
+    <input type = "text"  id="nom" name="nom"  placeholder="Nom" required>  <br/><br>
     
-    <input type = "text"  id="prenom" name="prenom" placeholder="prénom"> <br/><br>
+    <input type = "text"  id="prenom" name="prenom" placeholder="Prénom"> <br/><br>
     
-    <input type = "email"  id="email" name="email" placeholder="email" required> <br/><br>
+    <input type = "email"  id="email" name="email" placeholder="Email" required> <br/><br>
     
-    <input type = "password" id="pass" name ="pass" placeholder="mot de passe" required> <br><br/>
+    <input type = "password" id="pass" name ="pass" placeholder="Mot de passe" required> <br><br/>
     
-    <input type = "password" id ="retypepass" name ="retypepass" placeholder="retapez le mot de passe"><br/><br>
+    <input type = "password" id ="retypepass" name ="retypepass" placeholder="Retapez votre mot de passe"><br/><br>
 
     <select name="role" id ="role">
-        <option value="">choisisez cotre role</option>
-        <option value="client">client </option> 
-        <option value="pro">pro </option> 
+        <option value="">Choisissez votre rôle</option>
+        <option value="client">Client </option> 
+        <option value="pro">Pro </option> 
     </select>
 
     </br>
@@ -63,7 +63,7 @@ if(isset($_GET['i'])){
 </div>
 
 <div class = "connexion_users">
-<h1>connexion</h1>
+<h1>Connexion</h1>
 <p>Connectez vous avec vos informations</p>
 <br>
 
@@ -71,10 +71,10 @@ if(isset($_GET['i'])){
     
 
     
-    <input type = "email"  id="email" name="email" placeholder="email" required> <br/>
+    <input type = "email"  id="email" name="email" placeholder="Email" required> <br/>
 </br>
     
-    <input type = "password" id="pass" name ="pass" placeholder="mot de passe" required> <br/>
+    <input type = "password" id="pass" name ="pass" placeholder="Mot de passe" required> <br/>
     
     </br>
     

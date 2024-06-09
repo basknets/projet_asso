@@ -1,3 +1,8 @@
+<?php
+require_once '../login_asso.php';
+session_start();
+?>
+
 <html>
     <head>
         <title> </title>
@@ -22,7 +27,7 @@
 </nav>
 <?php 
 
-require_once '../login_asso.php';
+
 
 $genre = '';
 if(isset($_GET['genre'])){
@@ -118,9 +123,9 @@ if (!empty($_GET['nom'])) {
 }
 
 echo "
-<a href='adopter.php'>réinitialiser</a><br>
 <form method='GET'>
-<br><br>
+<a href='adopter.php'>réinitialiser</a><br>
+<br>
 
 <label for = 'sexe'>sexe : </label>
     <select name='genre' id ='sexe'>
@@ -176,7 +181,7 @@ if ($affichage->num_rows >0){
     ?><table><?php
     $count = 0;
     while ($row = $affichage->fetch_assoc()) {
-        $chat = "lunatique.jpg";
+        $chat = "caprice.jpg";
         $chien="loky2.jpg";
         $nacs = "tic2.jpg";
         $codeEspece = "";
@@ -197,9 +202,9 @@ if ($affichage->num_rows >0){
                 <?php echo $codeEspece ?><br>
                 <?php echo $animal?><br>
                 <?php echo "refuge de ".$refuge?> |
-                <?php if ($sexe==="femelle"){ echo "<img class=image src='femelle.jpg'>";}
+                <?php if ($sexe==="femelle"){ echo "femelle";}
                 else{
-                    echo"<img class=image src='male.jpg'>";
+                    echo"male";
                 } ?>
                 </a> 
                 </td>    

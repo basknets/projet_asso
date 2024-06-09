@@ -39,13 +39,15 @@
         if ($affichage->num_rows >0){
             while($row = $affichage->fetch_assoc()) {
                 echo"<div class ='rectangle'>";
-                echo "<div id = 'nom_animal'>".$row['nom'] ."<br></div>";
-                echo "<div id = 'espece_animal'>espèce :</div><br><div id = 'carre_espece'>". $row['espece']."</div>";
-                echo "<div id = 'race_animal'>race :</div><br><div id = 'carre_race'>". $row['race']."</div>";
-                echo "<div id= 'naissance_animal'> né le : ". $row['date_naissance']."</div>";
-                echo  "<div id ='sexe_animal'>".$row['sexe']."<br></div>";
-                echo "<div id = 'refuge_animal'> refuge de ". $row['lieu']."<br></div>";
-                echo "<div id = 'description_animal'> description : ". $row['description']."<br></div>";
+                echo"<div class ='description'>";
+                echo "<div id = 'nom_animal'>".$row['nom'] ."</div>";
+                echo "Espèce : <br>".$row['espece']."<br><br>";
+                echo "Race :<br>". $row['race']."<br><br>";
+                echo "Né le :<br> " .$row['date_naissance']."<br><br>";
+                echo $row['sexe']."<br><br>";
+                echo " Refuge de ". $row['lieu'];
+                echo "</div>";
+                echo "<div id = 'description_animal'> Description : ". $row['description']."<br></div>";
               
                     if ($row['espece']==="chien"){
                             echo "<img id=image src='loky2.jpg'></div>";}
@@ -61,6 +63,8 @@
                     $id_animaux = $row['id_animaux'];
                     ?>
                 <a href =<?php echo "adoption.php?id=$id_animaux" ?>> Adopter <?php echo $row['nom']; ?> </a>
+                <br>
+
                 <?php
 
             }

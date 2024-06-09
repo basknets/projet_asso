@@ -1,110 +1,95 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    <title> </title>
-        <link href="../style_asso.css" rel="stylesheet" >
-        <meta charset="utf-8">
+<head>
+    <title>Modifier Animal</title>
+    <meta charset="UTF-8">
+    <link href="../style_asso.css" rel="stylesheet">
 </head>
-<button onclick="retourPagePrecedente()">Retour</button>
+<body>
 
-<script>
-  function retourPagePrecedente() {
-    window.history.back(); // Cette fonction JavaScript retourne à la page précédente dans l'historique du navigateur
-  }
-</script>
-
+<div class="header">
+    <a href="tous_les_animaux.php" style="float: left;">Retour à l'accueil</a>
+    <h1 style="margin-left: 800px;">Adopter l'animal</h1><br>
+</div>
 <?php 
 require_once '../login_asso.php';
 
-if (isset($_GET['num_animal'])){
 
-    $id=$_GET['num_animal'];
 
-    $affichage = $connexion-> query ("SELECT * from animaux where id_animaux='$id'");    
-    if ($affichage->num_rows >0){
-        while($row = $affichage->fetch_assoc()) {
+if (isset($_GET['num_animal'])) {
+    $id = $_GET['num_animal'];
+
+    $affichage = $connexion->query("SELECT * FROM animaux WHERE id_animaux='$id'");
+    echo"<div class= 'infos'>";
+    if ($affichage->num_rows > 0) {
+        while ($row = $affichage->fetch_assoc()) {
             
-            echo "<br><br>".$row['nom'] ;
-            echo "<br>". $row['espece'];
-            echo"<br>". $row['race'];
-            echo "<br>". $row['date_naissance'];
-            echo "<br>". $row['sexe'];
-            echo "<br>". $row['lieu'];
-            echo "<br>".$row['description'];
 
+            echo "Nom : ".$row['nom'];
+            echo "<br> Espece : ".$row['espece'];
+            echo "<br> Race : ".$row['race'];
+            echo "<br> Date de naissance : ".$row['date_naissance'];
+            echo "<br> Sexe : ".$row['sexe'];
+            echo "<br> Lieu : ".$row['lieu'];
+            echo "<br> Description : ".$row['description'];
         }
+    } else {
+        echo "Une erreur est survenue !";
     }
-    else {
-        echo "une erreur est survenue !";
-    }
-}else{
-    echo "erreur dans l'id";
+    echo "</div>";
+} else {
+    echo "Erreur dans l'ID";
 }
 ?>
-
+<center><h1> Informations de l'animal </h1></center>
+<div class="ajout">
 <form action="" method="post">
-<input type="text" name="nom_adoptants" id ="nom_adoptants" placeholder =" nom adoptant">
-</br></br>
-<input type = "text" name="prenom_adoptants" id="prenom_adoptants" placeholder="prénom adoptant">
+    <center>
+    <br>
     
-</br></br>
 
-<input type ="text" name = "adresse_adoptants" id ="adresse_adoptants" placeholder ="adresse"></input>
-
-</br></br>
- <input type = "mail" name = "mail_adoptants" id ="mail_adoptants" placeholder =" mail"></input>
-
-</br></br>
-
-<input type ="tel" name = "telephone_adoptants" id ="telephone_adoptants" placeholder = "telephone adoptant" 
-pattern="[0-9]{2}.0-9]{2}.0-9]{2}.0-9]{2}.0-9]{2}"></input>
-<br>
-format du numéro 00.00.00.00.00
-
-</br></br>
-
-<input type="submit" name="valider" value="valider" >
-
+    <input type="text" name="nom_adoptants" id="nom_adoptants" placeholder="Nom adoptant">
+    <br><br>
+    <input type="text" name="prenom_adoptants" id="prenom_adoptants" placeholder="Prénom adoptant">
+    <br><br>
+   
+    <input type="email" name="mail_adoptants" id="mail_adoptants" placeholder="Mail">
+    <br><br>
+    <input type="submit" name="valider" value="Valider">
+    <br>
+    <br>
+    </center>
 </form>
 
+</div>
+
 <?php
+if (isset($_POST['nom_adoptants']) && isset($_POST['prenom_adoptants']) && isset($_POST['mail_adoptants'])) {
+    $insert = $connexion->prepare("INSERT INTO adoptants (id_animal, nom, prenom, email) VALUES (?, ?, ?,  ?)");
 
-require_once '../login_asso.php';
-
-if (isset($_POST['nom_adoptants'])  && isset($_POST['prenom_adoptants']) && isset($_POST['adresse_adoptants']) && isset($_POST['mail_adoptants'])&& isset($_POST['telephone_adoptants']))
-{
-    $insert = $connexion->prepare("INSERT INTO adoptants (id_animal, nom, prenom, adresse,mail, telephone) VALUES (?,?, ?, ?, ?,?)");
-
-    
     $nom = $_POST['nom_adoptants'];
     $prenom = $_POST['prenom_adoptants'];
-    $adresse = $_POST['adresse_adoptants'];
     $mail = $_POST['mail_adoptants'];
-    $telephone = $_POST['telephone_adoptants'];
 
-    $insert->bind_param("ssssss",$id, $nom, $prenom, $adresse, $mail, $telephone);
+    if ($insert) {
+        $insert->bind_param("isss", $id, $nom, $prenom, $mail);
 
+        if ($insert->execute()) {
+            $update_animal = $connexion->query("UPDATE animaux SET present = 1 WHERE id_animaux = '$id'");
+            if (!$update_animal) {
+                echo "Erreur lors de la mise à jour du statut de l'animal";
+            }
+        } else {
+            echo "Erreur dans l'enregistrement : ".$connexion->error;
+        }
 
-
-    if (strlen($nom)<70){
-        if(strlen($prenom<70)){
-            if (filter_var($mail, FILTER_VALIDATE_EMAIL)){
-                if ($insert->execute()) {
-                        $update_animal =$connexion->query( "UPDATE animaux SET present = 1 WHERE id_animaux = '$id'");
-
-                        } else {
-                            echo "erreur dans l'enregistrement";
-                        }
-                    }else{echo"l'emil n'est pas valide";}
-                }else {echo"le prenom est trop long";}
-
-            }else {echo"le nom est trop long ";}
-
-        $connexion->close();
+        $insert->close();
+    } else {
+        echo "Erreur de préparation de la requête : ".$connexion->error;
+    }
 }
 ?>
-
-
-
 
 </body>
 </html>
+

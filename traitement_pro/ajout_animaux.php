@@ -9,8 +9,12 @@
 
 <body>
 
+<div class="header">
+    <a href="accueil_pro.php" style="float: left;">Retour à l'accueil</a>
+    <h1 style="margin-left: 780px;">Ajouter un animal</h1>
+</div>
 
-<a href=accueil_pro.php>retour à l'accueil</a>
+
 <center>
 <?php
 if(isset($_GET['a'])){
@@ -26,23 +30,24 @@ if(isset($_GET['a'])){
 <div class="ajout">
 <center>
 <form action="traitement_ajout_animaux.php" method="post">
-<label for = "nom">nom de l'animal : </label>
+<br>
+<label for = "nom">Nom de l'animal : </label><br>
     <input type="text" name="nom" id ="nom">
 </br></br>
-<label for = "date_naissance"> date de naissance : </label>
+<label for = "date_naissance"> Date de naissance : </label><br>
     <input type = "date" name="date_naissance" id="date_naissance">
 </br></br>
-<label for = "espece">espèce : </label>
+<label for = "espece">Espèce : </label><br>
     <select name="espece" id ="espece">
-        <option value="">choisisez une race </option>
-        <option value = "chien">chien</option>
-        <option value = "chat ">chat</option>
-        <option value = "nacs">nacs</option>
+        <option value="">Choisissez une race </option>
+        <option value = "Chien">Chien</option>
+        <option value = "Chat ">Chat</option>
+        <option value = "Nacs">Nacs</option>
     </select>
 </br></br>
-<label for = "race">race : </label>
+<label for = "race">Race : </label><br>
     <select name="race" id ="race">
-        <option value="">choisisez une race</option>
+        <option value="">Choissisez une race</option>
         <option value="croise">croisé </option> 
         <option value="lapin">lapin </option>
         <option value="souris">souris </option>
@@ -114,17 +119,17 @@ if(isset($_GET['a'])){
 
 </br></br>
 
-<label for = "sexe">sexe : </label>
+<label for = "sexe">Sexe : </label><br>
     <select name="sexe" id ="sexe">
-        <option value="">choisisez le sexe </option>
-        <option value="femelle">femelle</option>
-        <option value="male">male</option>
+        <option value="">Choisissez le sexe </option>
+        <option value="Femelle">Femelle</option>
+        <option value="Male">Male</option>
     </select>
 </br></br>
 
-<label for = "lieu">lieu : </label>
+<label for = "lieu">Lieu : </label><br>
     <select name="lieu" id ="lieu">  
-        <option value="">choisisez le lieu </option>
+        <option value="">Choisissez le lieu </option>
         <option value="Paris">Paris</option>
         <option value="Lyon">Lyon</option>
         <option value="Lille">Lille</option>
@@ -143,7 +148,7 @@ if(isset($_GET['a'])){
     
 </br></br>
 
-<label for = "description">description : </label>
+<label for = "description">Description : </label><br>
     <textarea name = "description" id ="description"></textarea>
 
 </br></br>
